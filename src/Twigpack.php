@@ -187,7 +187,7 @@ class Twigpack extends Plugin
         );
         // delay attaching event handler to the view component after it is fully configured
         $app = Craft::$app;
-        if ($app->getConfig()->getGeneral()->devMode) {
+        if ($this->getSettings()->useDevServer) {
             $app->on(Application::EVENT_BEFORE_REQUEST, function () use ($app) {
                 $app->getView()->on(View::EVENT_END_BODY, [$this, 'injectErrorEntry']);
             });
