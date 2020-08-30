@@ -36,7 +36,7 @@ class Manifest
     const CACHE_KEY = 'twigpack';
     const CACHE_TAG = 'twigpack';
 
-    const DEVMODE_CACHE_DURATION = 1;
+    const DEVSERVER_CACHE_DURATION = 1;
 
     const CSP_HEADERS = [
         'Content-Security-Policy',
