@@ -24,10 +24,10 @@ class Settings extends Model
     // =========================================================================
 
     /**
-     * @var bool If `devMode` is on, use webpack-dev-server to all for HMR (hot
+     * @var bool Use webpack-dev-server to all for HMR (hot
      *      module reloading)
      */
-    public $useDevServer = true;
+    public $useDevServer = false;
 
     /**
      * @var bool If true, enforces Absolute Urls, if false, allows relative
@@ -102,7 +102,7 @@ class Settings extends Model
     {
         return [
             ['useDevServer', 'boolean'],
-            ['useDevServer', 'default', 'value' => true],
+            ['useDevServer', 'default', 'value' => false],
             ['errorEntry', 'string'],
             ['devServerBuildType', 'string'],
             ['cspNonce', 'string'],
