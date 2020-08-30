@@ -26,7 +26,7 @@
 return [
     // Global settings
     '*' => [
-        // If `devMode` is on, use webpack-dev-server to all for HMR (hot module reloading)
+        // Use webpack-dev-server for HMR (hot module reloading)
         'useDevServer' => false,
         // Enforce Absolute URLs on includes
         'useAbsoluteUrl' => true,
@@ -72,7 +72,7 @@ return [
     ],
     // Development environment
     'dev' => [
-        // If `devMode` is on, use webpack-dev-server to all for HMR (hot module reloading)
+        // Use webpack-dev-server for HMR (hot module reloading)
         'useDevServer' => true,
     ],
 ];
