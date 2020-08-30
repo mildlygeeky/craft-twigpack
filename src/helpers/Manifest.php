@@ -375,8 +375,7 @@ EOT;
     {
         $manifest = null;
         // Determine whether we should use the devServer for HMR or not
-        $devMode = Craft::$app->getConfig()->getGeneral()->devMode;
-        self::$isHot = ($devMode && $config['useDevServer']);
+        self::$isHot = $config['useDevServer'];
         // Try to get the manifest
         while ($manifest === null) {
             $manifestPath = self::$isHot
@@ -442,8 +441,8 @@ EOT;
         }
         if ($path !== null) {
             // Determine whether we should use the devServer for HMR or not
-            $devMode = Craft::$app->getConfig()->getGeneral()->devMode;
-            if ($devMode) {
+            $useDevServer = $config['useDevServer'];
+            if ($useDevServer) {
                 $devServerPrefix = $config['devServer']['publicPath'];
                 $devServerPath = self::combinePaths(
                     $devServerPrefix,
