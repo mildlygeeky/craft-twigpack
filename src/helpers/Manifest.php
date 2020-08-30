@@ -555,17 +555,17 @@ EOT;
                 self::CACHE_TAG . $path,
             ],
         ]);
-        // Set the cache duration based on devMode
-        $cacheDuration = Craft::$app->getConfig()->getGeneral()->devMode
-            ? self::DEVMODE_CACHE_DURATION
+        $settings = Twigpack::$plugin->getSettings();
+        // Set the cache duration based on devServer
+        $cacheDuration = $settings->useDevServer
+            ? self::DEVSERVER_CACHE_DURATION
             : null;
-        // If we're in `devMode` invalidate the cache immediately
-        if (Craft::$app->getConfig()->getGeneral()->devMode) {
+        // If we're in `devServer` invalidate the cache immediately
+        if ($settings->useDevServer) {
             self::invalidateCaches();
         }
         // Get the result from the cache, or parse the file
         $cache = Craft::$app->getCache();
-        $settings = Twigpack::$plugin->getSettings();
         $cacheKeySuffix = $settings->cacheKeySuffix ?? '';
         $file = $cache->getOrSet(
             self::CACHE_KEY . $cacheKeySuffix . $path,
